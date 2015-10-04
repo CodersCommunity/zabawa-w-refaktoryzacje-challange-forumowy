@@ -2,59 +2,29 @@
 #include <iostream>
 #include <sstream>
 
-int tab[3][3] = { 0 };
+int boardSize = 3;
+int squareBoard = new int[boardSize][boardSize];
 int tura = 1;
 std::string napisy="Komunikaty:";
 
 sf::Text tekst;
 
-bool widocznosc1 = false;
-bool widocznosc2 = false;
-bool widocznosc3 = false;
-bool widocznosc4 = false;
-bool widocznosc5 = false;
-bool widocznosc6 = false;
-bool widocznosc7 = false;
-bool widocznosc8 = false;
-bool widocznosc9 = false;
-
-bool aktywny1 = true;
-bool aktywny2 = true;
-bool aktywny3 = true;
-bool aktywny4 = true;
-bool aktywny5 = true;
-bool aktywny6 = true;
-bool aktywny7 = true;
-bool aktywny8 = true;
-bool aktywny9 = true;
+bool squareVisibility[9];
+bool isActive[9];
 
 void resetuj()
 {
-    for (int i = 0; i < 3; i++)
-            for (int j = 0; j < 3; j++) tab[i][j] = 0;
+    for (int rows = 0; rows < 3; rows++) 
+    {
+        for (int cols = 0; cols < 3; cols++) 
+        {
+            squareBoard[rows][cols] = 0;
+        }
+    }
 
     tura = 1;
     napisy = "Komunikaty:";
     tekst.setString(napisy);
-    aktywny1 = true;
-    aktywny2 = true;
-    aktywny3 = true;
-    aktywny4 = true;
-    aktywny5 = true;
-    aktywny6 = true;
-    aktywny7 = true;
-    aktywny8 = true;
-    aktywny9 = true;
-
-    widocznosc1 = false;
-    widocznosc2 = false;
-    widocznosc3 = false;
-    widocznosc4 = false;
-    widocznosc5 = false;
-    widocznosc6 = false;
-    widocznosc7 = false;
-    widocznosc8 = false;
-    widocznosc9 = false;
 }
 
 void sprawdz()
