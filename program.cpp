@@ -12,7 +12,7 @@ sf::Text tekst;
 bool squareVisibility[9];
 bool isActive[9];
 
-void resetuj()
+void reset()
 {
     for (int rows = 0; rows < 3; rows++) 
     {
@@ -20,6 +20,9 @@ void resetuj()
         {
             squareBoard[rows][cols] = 0;
         }
+        
+        squareVisibility[rows] = false;
+        isActive[rows]         = true;
     }
 
     tura = 1;
@@ -27,36 +30,20 @@ void resetuj()
     tekst.setString(napisy);
 }
 
-void sprawdz()
+void check()
 {
     if (((tab[0][0] == 1) && (tab[0][1] == 1) && (tab[0][2] == 1)) || ((tab[1][0] == 1) && (tab[1][1] == 1) && (tab[1][2] == 1)) || ((tab[2][0] == 1) && (tab[2][1] == 1) && (tab[2][2] == 1)) || ((tab[0][0] == 1) && (tab[1][0] == 1) && (tab[2][0] == 1)) || ((tab[0][1] == 1) && (tab[1][1] == 1) && (tab[2][1] == 1)) || ((tab[0][2] == 1) && (tab[1][2] == 1) && (tab[2][2] == 1)) || ((tab[0][0] == 1) && (tab[1][1] == 1) && (tab[2][2] == 1)) || ((tab[0][2] == 1) && (tab[1][1] == 1) && (tab[2][0] == 1)))
     {
             napisy += " wygrywa gracz zielony!";
             tekst.setString(napisy);
-            aktywny1 = false;
-            aktywny2 = false;
-            aktywny3 = false;
-            aktywny4 = false;
-            aktywny5 = false;
-            aktywny6 = false;
-            aktywny7 = false;
-        aktywny8 = false;
-        aktywny9 = false;
+            // TODO: Pętla for dla isActive[] false
     }
 
     else if (((tab[0][0] == 2) && (tab[0][1] == 2) && (tab[0][2] == 2)) || ((tab[1][0] == 2) && (tab[1][1] == 2) && (tab[1][2] == 2)) || ((tab[2][0] == 2) && (tab[2][1] == 2) && (tab[2][2] == 2)) || ((tab[0][0] == 2) && (tab[1][0] == 2) && (tab[2][0] == 2)) || ((tab[0][1] == 2) && (tab[1][1] == 2) && (tab[2][1] == 2)) || ((tab[0][2] == 2) && (tab[1][2] == 2) && (tab[2][2] == 2)) || ((tab[0][0] == 2) && (tab[1][1] == 2) && (tab[2][2] == 2)) || ((tab[0][2] == 2) && (tab[1][1] == 2) && (tab[2][0] == 2)))
     {
             napisy += " wygrywa gracz neibieski!";
             tekst.setString(napisy);
-            aktywny1 = false;
-            aktywny2 = false;
-            aktywny3 = false;
-            aktywny4 = false;
-            aktywny5 = false;
-            aktywny6 = false;
-            aktywny7 = false;
-            aktywny8 = false;
-            aktywny9 = false;
+            // TODO: Pętla for dla isActive[] false
     }
     else if ((aktywny1 == false) && (aktywny2 == false) && (aktywny3 == false) && (aktywny4 == false) && (aktywny5 == false) && (aktywny6 == false) && (aktywny7 == false) && (aktywny8 == false) && (aktywny9 == false))
     {
@@ -327,6 +314,8 @@ int main()
             oknoAplikacji.draw(button);
             oknoAplikacji.draw(button_tekst);
 
+            // Tutaj kod jest mega nadmiarowy - po pierwsze już nie mamy tablicy widocznoscXX, 
+            // po drugie jest to ogromny blok kodu, który się powtarza
             if (widocznosc1 == true) oknoAplikacji.draw(o1);
             if (widocznosc2 == true) oknoAplikacji.draw(o2);
             if (widocznosc3 == true)oknoAplikacji.draw(o3);
