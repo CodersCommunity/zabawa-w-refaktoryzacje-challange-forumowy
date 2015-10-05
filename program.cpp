@@ -3,7 +3,7 @@
 #include <sstream>
 
 int boardSize = 3;
-int squareBoard = new int[boardSize][boardSize];
+auto squareBoard = new int[boardSize][boardSize]();
 int tura = 1;
 std::string napisy="Komunikaty:";
 
@@ -16,11 +16,6 @@ void reset()
 {
     for (int rows = 0; rows < 3; rows++) 
     {
-        for (int cols = 0; cols < 3; cols++) 
-        {
-            squareBoard[rows][cols] = 0;
-        }
-        
         squareVisibility[rows] = false;
         isActive[rows]         = true;
     }
