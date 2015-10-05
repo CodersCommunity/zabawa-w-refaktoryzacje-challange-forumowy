@@ -1,8 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include <sstream>
 
-int boardSize = 3;
+const int boardSize = 3;
 auto squareBoard = new int[boardSize][boardSize]();
 int tura = 1;
 std::string napisy="Komunikaty:";
