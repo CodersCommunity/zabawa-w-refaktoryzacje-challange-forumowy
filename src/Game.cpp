@@ -113,10 +113,7 @@ bool Game::checkTie()
 		}
 	}
 
-	if(taken == 9)
-		return true;
-	else
-		return false;
+	return taken == 9;
 }
 
 void Game::events()
